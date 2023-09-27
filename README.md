@@ -1,5 +1,7 @@
 # Puffin-OPC
 Conversion scripts between Puffin and Optical Propagation Code (OPC) field formats for an unaveraged cavity-based FEL simulation.
+[OPC available here](https://gitlab.utwente.nl/tnw/ap/lpno/public-projects/Physics-OPC)
+
 
 How to run: Puffin-to-OPC
 For example. If the `Puffin` simulation has been setup with `40` undulator periods then running with `test.in`, and the field data is dumped at every period. 
