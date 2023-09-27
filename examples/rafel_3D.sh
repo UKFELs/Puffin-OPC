@@ -2,8 +2,9 @@
 
 # This bash script is the Puffin/OPC simulation
 # It is also suitable to modify to use in HPC
-export PUFFDIR=/mnt/d/Puffin_BUILD/Puffin_BIN/bin
-export MYSCRIPT=/mnt/d/My_python_script/Modified_script
+export PUFFDIR=/path/to/Puffin/bin
+export MYSCRIPT=/path/to/Puffin-OPC
+export MYPLOTSCRIPT=/path/to/plot-script
 
 # filename prefix in puffin
 BASENAME=rafel
@@ -35,12 +36,12 @@ mv M2.h5 M2_0.h5
 cp entrance.h5 entrance_0.h5
 
 # plot the transverse profile
-python $MYSCRIPT/plotTransProfile.py outhole_0
-python $MYSCRIPT/plotTransProfile.py M1_0
-python $MYSCRIPT/plotTransProfile.py M2_0
-python $MYSCRIPT/plotTransProfile.py entrance_0
-python $MYSCRIPT/plotTransProfile.py ${BASENAME}_ap_${LFN}_P_0
-python $MYSCRIPT/plotTransProfile.py ${BASENAME}_ap_0_P_0
+python $MYPLOTSCRIPT/plotTransProfile.py outhole_0
+python $MYPLOTSCRIPT/plotTransProfile.py M1_0
+python $MYPLOTSCRIPT/plotTransProfile.py M2_0
+python $MYPLOTSCRIPT/plotTransProfile.py entrance_0
+python $MYPLOTSCRIPT/plotTransProfile.py ${BASENAME}_ap_${LFN}_P_0
+python $MYPLOTSCRIPT/plotTransProfile.py ${BASENAME}_ap_0_P_0
 
 # number of pass number
 for loop in {1..10}
@@ -58,21 +59,21 @@ do
 	python $MYSCRIPT/OPC-to-Puffin_xy.py entrance
 
  	mv ${BASENAME}_aperp_${LFN}.h5 ${BASENAME}_ap_${LFN}_P_${loop}.h5
-    mv ${BASENAME}_integrated_${LFN}.h5 ${BASENAME}_int_${LFN}_P_${loop}.h5
-    mv ${BASENAME}_aperp_0.h5  ${BASENAME}_ap_0_P_${loop}.h5
-    mv ${BASENAME}_integrated_0.h5  ${BASENAME}_int_0_P_${loop}.h5
+    	mv ${BASENAME}_integrated_${LFN}.h5 ${BASENAME}_int_${LFN}_P_${loop}.h5
+    	mv ${BASENAME}_aperp_0.h5  ${BASENAME}_ap_0_P_${loop}.h5
+    	mv ${BASENAME}_integrated_0.h5  ${BASENAME}_int_0_P_${loop}.h5
 
 	mv outhole.h5 outhole_${loop}.h5
-    mv M1.h5 M1_${loop}.h5
-    mv M2.h5 M2_${loop}.h5
-    cp entrance.h5 entrance_${loop}.h5
+    	mv M1.h5 M1_${loop}.h5
+    	mv M2.h5 M2_${loop}.h5
+    	cp entrance.h5 entrance_${loop}.h5
 
 	# plot the transverse profile
-	python $MYSCRIPT/plotTransProfile.py outhole_${loop}
-	python $MYSCRIPT/plotTransProfile.py M1_${loop}
-	python $MYSCRIPT/plotTransProfile.py M2_${loop}
-	python $MYSCRIPT/plotTransProfile.py entrance_${loop}
-	python $MYSCRIPT/plotTransProfile.py ${BASENAME}_ap_${LFN}_P_${loop}
-	python $MYSCRIPT/plotTransProfile.py ${BASENAME}_ap_0_P_${loop}
-    echo pass ${loop} done
+	python $MYPLOTSCRIPT/plotTransProfile.py outhole_${loop}
+	python $MYPLOTSCRIPT/plotTransProfile.py M1_${loop}
+	python $MYPLOTSCRIPT/plotTransProfile.py M2_${loop}
+	python $MYPLOTSCRIPT/plotTransProfile.py entrance_${loop}
+	python $MYPLOTSCRIPT/plotTransProfile.py ${BASENAME}_ap_${LFN}_P_${loop}
+	python $MYPLOTSCRIPT/plotTransProfile.py ${BASENAME}_ap_0_P_${loop}
+    	echo pass ${loop} done
 done
