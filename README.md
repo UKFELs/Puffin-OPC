@@ -1,4 +1,5 @@
-# Puffin-OPC
+# Conversion scripts between Puffin and OPC field formats
+
 Conversion scripts between Puffin and Optical Propagation Code (OPC) field formats for an unaveraged cavity-based FEL simulation.
 
 [OPC available here](https://gitlab.utwente.nl/tnw/ap/lpno/public-projects/Physics-OPC)
