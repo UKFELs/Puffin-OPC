@@ -16,6 +16,9 @@ python \path\to\python-scripts\Puffin-to-OPC_xy.py test_aperp_41
 ```
 The script will provide `test_aperp_41_x.dfl`, `test_aperp_41_x.param`, `test_aperp_41_y.dfl`, and  `test_aperp_41_y.param` in the OPC field format.
 
+`x` and `y` represent the individual polarisation field extracted from Puffin field format. Use theses field to propagate further using OPC individually. 
+Please see `.\example` for reference of how to use and excute the OPC simulation script using `bash` and `perl`.
+
 
 __How to run: OPC-to-Puffin__
 
