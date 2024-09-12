@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Latest update on: 27/09/2023
+Latest update on: 12/09/2024
 
 @author: P. Pongchalee
 """
@@ -54,14 +54,20 @@ with open(px, "r") as file:
     
     Mx = optics_dict.get('Mx', None)
     My = optics_dict.get('My', None)
+
+    mesh_x = optics_dict.get('mesh_x', None)
+    mesh_y = optics_dict.get('mesh_y', None)
     
     nslices = optics_dict.get('nslices', None)
     npoints_x = optics_dict.get('npoints_x', None) 
     npoints_y = optics_dict.get('npoints_y', None)
     
     # scalling the grid size of puffin field when running with OPC magnification factor in Modified Fresnel Integral
-    runInfo_dict['sLengthOfElmX'] = Mx * runInfo_dict.get('sLengthOfElmX', None)
-    runInfo_dict['sLengthOfElmY'] = My * runInfo_dict.get('sLengthOfElmY', None)
+    # runInfo_dict['sLengthOfElmX'] = Mx * runInfo_dict.get('sLengthOfElmX', None)
+    # runInfo_dict['sLengthOfElmY'] = My * runInfo_dict.get('sLengthOfElmY', None)
+    SUscale = 1/np.sqrt(runInfo_dict.get('Lg', None) * runInfo_dict.get('Lc', None))
+    runInfo_dict['sLengthOfElmX'] = mesh_x * SUscale
+    runInfo_dict['sLengthOfElmY'] = mesh_y * SUscale
 
 print ("Reading binary file_x ..." + fx + "\n")
 field_x = np.fromfile(fx, dtype='f8') # don't need to open the binary file numpy will haddle this
