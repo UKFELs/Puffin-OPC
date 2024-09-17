@@ -90,7 +90,7 @@ move $far => "$farout";
 my $M2 = 'M2' . '_' . $out1 . '.dfl' ;
 move $mirror2 => "$M2";
 
-zshift $field $z_shift;
+zshift $field $detune_cav;
 move $field => "$outfile";
 
 
