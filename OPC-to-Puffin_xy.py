@@ -70,9 +70,9 @@ with open(px, "r") as file:
     runInfo_dict['sLengthOfElmY'] = mesh_y * SUscale
 
 print ("Reading binary file_x ..." + fx + "\n")
-field_x = np.fromfile(fx, dtype='f8') # don't need to open the binary file numpy will haddle this
+field_x = (1/np.sqrt(Mx*My))*np.fromfile(fx, dtype='f8') # don't need to open the binary file numpy will haddle this
 print ("Reading binary file_y ..." + fy + "\n")
-field_y = np.fromfile(fy, dtype='f8') # don't need to open the binary file numpy will haddle this
+field_y = (1/np.sqrt(Mx*My))*np.fromfile(fy, dtype='f8') # don't need to open the binary file numpy will haddle this
 
 print ("Converting to Puffin format xy ...\n")
 Aperp_x = field_x[0:][::2] # even index represents real number in OPC format
