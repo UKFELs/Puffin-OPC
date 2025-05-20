@@ -45,7 +45,7 @@ mkdir -p ~/puffin-build
 cd ~/puffin-build
 ```
 ```bash
-cmake -DENABLE_PARALLEL=TRUE       -DCMAKE_INSTALL_PREFIX=~/puffin-install       ~/puffin-src
+cmake -DENABLE_PARALLEL=TRUE -DCMAKE_INSTALL_PREFIX=~/puffin-install ~/puffin-src
 ```
 ```bash
 make -j
