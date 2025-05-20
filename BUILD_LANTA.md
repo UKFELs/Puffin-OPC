@@ -109,6 +109,19 @@ sbatch job_submit.sh
 
 ---
 
+📊 Checking Job Status and Quota Limits
+```bash
+myqueue
+```
+```bash
+sbalance
+```
+
+Cancel Job
+```bash
+scancel [jobID]
+```
+
 ## 🔗 References
 - [Puffin GitHub](https://github.com/UKFELs/Puffin)
 - [Puffin Documentation](https://ukfels.github.io/puffinDocs/)
