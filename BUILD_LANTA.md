@@ -43,9 +43,11 @@ git clone https://github.com/UKFELs/Puffin.git ~/puffin-src
 ```bash
 mkdir -p ~/puffin-build
 cd ~/puffin-build
-
+```
+```bash
 cmake -DENABLE_PARALLEL=TRUE       -DCMAKE_INSTALL_PREFIX=~/puffin-install       ~/puffin-src
-
+```
+```bash
 make -j
 make install
 ```
